@@ -1,0 +1,6 @@
+christmas
+
+*.dSYM
+build/
+temp*
+.vscode
