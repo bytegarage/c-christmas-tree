@@ -139,10 +139,8 @@ void stdin_raw_mode(bool activate)
         struct termios raw_mode;
         if (!isatty(STDIN_FILENO))
         {
-            //printf_error("Error: stdin is not a TTY\n");
             exit(1);
         }
-        //printf("stdin is %s\n", ttyname(STDIN_FILENO));
 
         // Back up current TTY settings
         tcgetattr(STDIN_FILENO, &tty_opts_backup);

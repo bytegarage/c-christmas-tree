@@ -21,7 +21,7 @@ void plot(char *fstr) {
             set_color(color_green);
             putc(*p, stdout);
         } else {
-            char color = -(*p * 2); // estendo il range per avere colori più accesi
+            unsigned char color = -(*p * 2);
             set_color_rgb(color, 0, 0);
             putc('*', stdout);
             (*p)-=5;
@@ -63,10 +63,6 @@ int main() {
     char *pc = str;
     char *pl = line;
 
-    // trasformo i caratteri letti in coordinate colore:
-    // * con valori positivi indico codici ascii di caratteri da stampare nel colore di default (verde)
-    // * con valori negativi indico le luci, il valore assoluto tra 1..100 indica l'intesità dio ogni lucina
-    // ogni lucina è inizializzata con un valore random diverso in mdoo da simulare un effetto di luci non sincrono
     while(*pc) {
         *pl++ = (*pc != '$') ? *pc : (char)random_min_max(-100, -1);
         pc++;
