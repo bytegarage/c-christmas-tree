@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// override the puts standard beehaviour to skip the newline
+// override the puts standard behaviour to skip the newline
 #define __puts(s) fputs(s, stdout)
 
 typedef enum 
@@ -63,8 +63,8 @@ style_info __current_style;
 style_info __default_style;
 
 // RGB Color Patter
-#define RGB_FOREGRAUND_PATTERN "\033[38;2;%d;%d;%dm" 
-#define RGB_BACKGRAUND_PATTERN "\033[48;2;%d;%d;%dm"
+#define RGB_FOREGROUND_PATTERN "\033[38;2;%d;%d;%dm" 
+#define RGB_BACKGROUND_PATTERN "\033[48;2;%d;%d;%dm"
 
 int __set_color(console_color c)
 {
@@ -80,7 +80,7 @@ int __set_color(console_color c)
             int r = (c & 0x00FF0000) >> 16;
             int g = (c & 0x0000FF00) >> 8;
             int b = (c & 0x000000FF);
-            printf(RGB_FOREGRAUND_PATTERN, r, g, b);        
+            printf(RGB_FOREGROUND_PATTERN, r, g, b);        
         }
     }
 
@@ -109,7 +109,7 @@ int __set_background(console_color c)
             int r = (c & 0x00FF0000) >> 16;
             int g = (c & 0x0000FF00) >> 8;
             int b = (c & 0x000000FF);
-            printf(RGB_BACKGRAUND_PATTERN, r, g, b);        
+            printf(RGB_BACKGROUND_PATTERN, r, g, b);        
         }
     }
 
