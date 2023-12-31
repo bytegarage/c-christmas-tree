@@ -33,7 +33,7 @@ void plot(char *fstr) {
     fflush(stdout);
 }
 
-char* load_happines(const char* fname, char *buffer, size_t size) {
+char* load_happiness(const char* fname, char *buffer, size_t size) {
     FILE *f = fopen(fname, "r");
     char *p = buffer;
     size_t free_buffer = size - 1;
@@ -55,7 +55,7 @@ int main() {
     char str[10000];
     char line[sizeof(str)];
 
-    if(load_happines("tree.txt", str, sizeof(str)) == NULL) {
+    if(load_happiness("tree.txt", str, sizeof(str)) == NULL) {
         printf("\nFile not found!\n");
         return EXIT_FAILURE;
     }
